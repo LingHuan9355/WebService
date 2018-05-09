@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//创建一个xml文档解析器对象
+		var xmlDoc = new ActiveXObject("Microsoft.XMLDOM"); //
+		//开启解析校验
+		xmlDoc.validateOnParse = "true";
+		//加载xml文件数据
+		xmlDoc.load("book.xml");
+		//输出解析出错的原因（如果没错，原因为空）
+		document.write("错误的原因：" + xmlDoc.parseError.reason + "<br/>");
+		//输出解析出错的行号（如果没错，行号为0）
+		document.write("错误的行号：" + xmlDoc.parseError.line);
+	</script>
+</body>
+</html>
