@@ -22,8 +22,12 @@ public class ClientTest {
 				WeatherWS weatherWS = new  WeatherWS();
 				WeatherWSSoap weatherWSSoap =weatherWS.getWeatherWSSoap();
 				ArrayOfString weather =  weatherWSSoap.getWeather("…œ∫£", null);
-			    List<String> cityList = weather.getString();
-			    System.out.println(cityList);
+			    List<String> list = weather.getString();
+			    //System.out.println(list);
+			    for(String str : list) {
+			    	System.out.println(str + "----");
+			    }
+			
 			}
 
 }
