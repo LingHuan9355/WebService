@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.jws.WebService;
+
 import com.hr.ws.bean.Student;
 
 /**
@@ -16,6 +18,7 @@ import com.hr.ws.bean.Student;
  * 
  * @Description :
  */
+@WebService
 public class DataTypeWSImpl implements DataTypeWS {
 
 			@Override
