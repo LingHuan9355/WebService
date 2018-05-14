@@ -1,7 +1,7 @@
 package com.hr.ws_cxf_client.test;
 
-import com.hr.ws.HelloWS;
-import com.hr.ws.HelloWSImplService;
+import com.hr.ws.ws.HelloWS;
+import com.hr.ws.ws.HelloWSImplService;
 
 /**
  *   使用CXF开发调用web service 客户端

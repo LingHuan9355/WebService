@@ -112,7 +112,7 @@
  
   <wsdl:service name="HelloWSImplService">
 	    <wsdl:port binding="tns:HelloWSImplServiceSoapBinding" name="HelloWSImplPort">
-	      <soap:address location="http://192.168.0.103:8888/180509WebService1_ws/hellows"/>
+	      <soap:address location="http://192.168.0.100:8989/1805012WebService2_ws/hellows"/>
 	    </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

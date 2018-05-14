@@ -2,7 +2,7 @@ package com.hr.ws.server;
 
 import javax.xml.ws.Endpoint;
 
-import com.hr.ws.HelloWSImpl;
+import com.hr.ws.ws.HelloWSImpl;
 
 /**
  * 发布Web Service
@@ -19,7 +19,7 @@ public class ServerTest {
         
 	            public static void main(String[] args) {
 					      
-	            	   String address ="http://192.168.0.103:8888/180509WebService1_ws/hellows";
+	            	   String address ="http://192.168.0.100:8989/1805012WebService2_ws/hellows";
 				       Endpoint.publish(address, new HelloWSImpl());
 				       System.out.println("发布webservice成功");
 	            }
