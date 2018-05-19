@@ -11,9 +11,10 @@ import org.apache.cxf.message.Message;
 
 import com.hr.ws.ws.HelloWS;
 import com.hr.ws.ws.HelloWSImplService;
+import com.hr.ws_cxf_client.test.interceptor.AddUserInterceptor;
 
 /**
- *   使用CXF开发调用web service 客户端
+ *   测试自定义拦截器
  * @Name  : ClientTest
  * @Author : LH
  * @Date : 2018年5月12日 下午7:27:19
@@ -21,7 +22,7 @@ import com.hr.ws.ws.HelloWSImplService;
  * 
  * @Description :
  */
-public class ClientTest {
+public class ClientTest3 {
 
 			/**
 			 * @param args
@@ -34,13 +35,9 @@ public class ClientTest {
 		       Client client = ClientProxy.getClient(helloWS);
 		      //客户端的日志出拦截器
 		      List<Interceptor<? extends Message>> outInterceptors = client.getOutInterceptors();
-		      outInterceptors.add(new LoggingOutInterceptor());
+		      outInterceptors.add(new AddUserInterceptor("carllh", "admin123"));
 		      
-		      //客户端的日志入拦截器
-		      List<Interceptor<? extends Message>> inInterceptors = client.getInInterceptors();
-		      inInterceptors.add(new LoggingInInterceptor());
-		        
-		        String result = helloWS.sayHello("BIBli");
+		        String result = helloWS.sayHello("Jack");
 		        System.out.println("cxf_client " +result);
 			}
 

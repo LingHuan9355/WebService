@@ -10,22 +10,23 @@ import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws22.EndpointImpl;
 import org.apache.cxf.message.Message;
 
+import com.hr.ws.interceptor.CheckUserInterceptor;
 import com.hr.ws.ws.HelloWSImpl;
 
 /**
- * 发布Web Service
- * @Name  : ServerTest3
+ * 
+ * @Name  : ServerTest4
  * @Author : LH
- * @Date : 2018年5月15日 下午11:45:31
+ * @Date : 2018年5月19日 下午8:23:43
  * @Version : V1.0
  * 
  * @Description :
  */
-public class ServerTest3 {
+public class ServerTest4 {
         
 	            public static void main(String[] args) {
 					      
-	            	   String address ="http://192.168.0.106:8888/180515WebService3_ws_cxf/datatypews";
+	            	   String address ="http://192.168.0.100:8888/180515WebService3_ws_cxf/datatypews";
 				       Endpoint endpoint  =  Endpoint.publish(address, new HelloWSImpl());
 				       System.out.println(endpoint);
 				       
@@ -33,12 +34,8 @@ public class ServerTest3 {
 				       
 				       	//服务端的日志入拦截器
 				        List<Interceptor<? extends Message>> inInterceptors = endpointImpl.getInInterceptors();	
-				        inInterceptors.add(new LoggingInInterceptor());
+				        inInterceptors.add(new CheckUserInterceptor());
 				        
-				      //服务端的日志出拦截器
-				        List<Interceptor<? extends Message>> outInterceptors = endpointImpl.getOutInterceptors();
-				        outInterceptors.add(new LoggingOutInterceptor());
-				        
-				       System.out.println("发布web service成功3");
+				       System.out.println("发布web service成功4");
 	            }
 }
