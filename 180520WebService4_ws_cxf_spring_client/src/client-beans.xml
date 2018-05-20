@@ -7,6 +7,12 @@
 					http://www.springframework.org/schema/beans/spring-beans.xsd
 					http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 					
-	<jaxws:client id="orderClient" serviceClass="com.hr.ws.ws.OrderWS" 
-					address="http://localhost:8080/180520WebService4_ws_cxf_spring/orderws" />
+	<jaxws:client id="orderClient" serviceClass="com.hr.ws.ws.OrderWS"  address="http://localhost:8080/180520WebService4_ws_cxf_spring/orderws" >
+	     	     <jaxws:outInterceptors>
+	     		     <bean class="com.hr.ws.interceptor.AddUserInterceptor">
+	     		         <constructor-arg name="name" value="carlling" />
+	     		         <constructor-arg name="password" value="admin1008" />
+	     		     </bean>		
+	     		</jaxws:outInterceptors>
+	</jaxws:client>
 </beans>
