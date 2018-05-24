@@ -13,9 +13,10 @@
 				$("#btn").click(function(){ //回调函数
 					alert("---");
 					var name = document.getElementById("name").value;
-					var data = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns2:sayHello xmlns:ns2="http://ws.ws.hr.com/"><arg0>' + name + '</arg0></ns2:sayHello></soap:Body></soap:Envelope>';
+					//var data = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns2:sayHello xmlns:ns2="http://ws.ws.hr.com/"><arg0>' + name + '</arg0></ns2:sayHello></soap:Body></soap:Envelope>';
+					var data ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><hr><name>carlling</name><password>admin1008</password></hr></soap:Header><soap:Body><ns2:getOrderById xmlns:ns2="http://ws.ws.hr.com/"><arg0>25</arg0></ns2:getOrderById></soap:Body></soap:Envelope>';
 				    alert(data);
-					 $.post(
+		/* 			 $.post(
 				    		"http://192.168.0.101:8888/180515WebService3_ws_cxf/datatypews",
 				    		data,
 				    		function(msg){
@@ -24,9 +25,23 @@
 				    		    alert(value);
 				    		},
 				    		"xml"
-				    ); 
+				    );  */
 
-				
+					 $.ajax({
+						type : "post",
+						url : "http://localhost:8080/180520WebService4_ws_cxf_spring/orderws",
+						data : data,
+						success : function(msg){
+							alert("------");
+							var $Result = $(msg);
+							var value = $Result.find("return").text();
+							alert(value);
+						},
+						error : function(msg) {
+							//alert("-----"+msg);
+						},
+						dataType : "xml"
+					}); 
 				    
 				});
 				
@@ -78,7 +93,8 @@
        用户名:
 	<input id="name" name="username" value="" />
 	<br>
-	<button onclick="reqWebService()">AJax请求webservice</button><br>
+	<button onclick="reqWebService()">AJax请求webservice</button>
+	<br><br>
 	<button id="btn">Jquery请求webservice</button>
 </body>
 </html>
