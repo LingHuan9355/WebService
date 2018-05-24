@@ -10,6 +10,23 @@
 
 			$(function(){
 				
+				$("#btn2").click(function(){
+					alert("===");
+					var name = document.getElementById("name").value;
+					$.post(
+							"HttpURLConnectionServlet",
+							"name="+name,
+							function(msg){
+								alert(msg);
+								var $Result = $(msg);
+								var value = $Result.find("return").text();
+								alert(value);
+							},
+							"xml"
+					);
+				});
+				
+				
 				$("#btn").click(function(){ //回调函数
 					alert("---");
 					var name = document.getElementById("name").value;
@@ -66,7 +83,7 @@
 				//3.打开连接
 				request.open("POST","http://192.168.0.101:8888/180515WebService3_ws_cxf/datatypews");
 				//4.设置请求头
-				request.setRequestHeader("Content-type","");
+				request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			    //5.发送请求，将data作为请求体fas
 				request.send(data);
 			}
@@ -94,7 +111,9 @@
 	<input id="name" name="username" value="" />
 	<br>
 	<button onclick="reqWebService()">AJax请求webservice</button>
-	<br><br>
+	<br/><br/>
 	<button id="btn">Jquery请求webservice</button>
+	<br/><br/>
+	<button id="btn2">HttpURLConnection请求webservice</button>
 </body>
 </html>
