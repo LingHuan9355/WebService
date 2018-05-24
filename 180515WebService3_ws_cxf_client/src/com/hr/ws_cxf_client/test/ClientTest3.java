@@ -14,7 +14,7 @@ import com.hr.ws.ws.HelloWSImplService;
 import com.hr.ws_cxf_client.test.interceptor.AddUserInterceptor;
 
 /**
- *   测试自定义拦截器
+ *   测试系统日志拦截器
  * @Name  : ClientTest
  * @Author : LH
  * @Date : 2018年5月12日 下午7:27:19
@@ -35,10 +35,10 @@ public class ClientTest3 {
 		       Client client = ClientProxy.getClient(helloWS);
 		      //客户端的日志出拦截器
 		      List<Interceptor<? extends Message>> outInterceptors = client.getOutInterceptors();
-		      outInterceptors.add(new AddUserInterceptor("carllh", "admin123"));
+		      outInterceptors.add(new LoggingOutInterceptor());
 		      
 		        String result = helloWS.sayHello("Jack");
-		        System.out.println("cxf_client " +result);
+		        System.out.println("cxf_client3 " +result);
 			}
 
 }

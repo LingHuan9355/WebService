@@ -17,10 +17,10 @@ import com.hr.ws.ws.HelloWSImpl;
  * 
  * @Name  : ServerTest4
  * @Author : LH
- * @Date : 2018年5月19日 下午8:23:43
+ * @Date : 2018~{Dj~}5~{TB~}19~{HU~} ~{OBNg~}8:23:43
  * @Version : V1.0
  * 
- * @Description :
+ * @Description : ~{WT6(Re@9=XFw~} server~{6K~}
  */
 public class ServerTest4 {
         
@@ -32,10 +32,10 @@ public class ServerTest4 {
 				       
 				       EndpointImpl endpointImpl = (EndpointImpl) endpoint;
 				       
-				       	//服务端的日志入拦截器
+				       	//~{7~Nq6K5DHUV>Hk@9=XFw~}
 				        List<Interceptor<? extends Message>> inInterceptors = endpointImpl.getInInterceptors();	
 				        inInterceptors.add(new CheckUserInterceptor());
 				        
-				       System.out.println("发布web service成功4");
+				       System.out.println("~{7"2<~}web service~{3I9&~}4");
 	            }
 }

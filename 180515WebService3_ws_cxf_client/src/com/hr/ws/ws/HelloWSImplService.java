@@ -15,7 +15,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "HelloWSImplService", 
-                  wsdlLocation = "http://192.168.0.100:8888/180515WebService3_ws_cxf/datatypews?wsdl",
+                  wsdlLocation = "http://192.168.0.101:8888/180515WebService3_ws_cxf/datatypews?wsdl",
                   targetNamespace = "http://ws.ws.hr.com/") 
 public class HelloWSImplService extends Service {
 
@@ -26,11 +26,11 @@ public class HelloWSImplService extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("http://192.168.0.100:8888/180515WebService3_ws_cxf/datatypews?wsdl");
+            url = new URL("http://192.168.0.101:8888/180515WebService3_ws_cxf/datatypews?wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(HelloWSImplService.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "http://192.168.0.100:8888/180515WebService3_ws_cxf/datatypews?wsdl");
+                     "Can not initialize the default wsdl from {0}", "http://192.168.0.101:8888/180515WebService3_ws_cxf/datatypews?wsdl");
         }
         WSDL_LOCATION = url;
     }
