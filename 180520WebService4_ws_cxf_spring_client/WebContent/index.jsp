@@ -8,7 +8,29 @@
 			<script type="text/javascript" src="jquery-1.7.2.js"></script>
 			<script type="text/javascript">
 
-			
+			$(function(){
+				
+				$("#btn").click(function(){ //回调函数
+					alert("---");
+					var name = document.getElementById("name").value;
+					var data = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns2:sayHello xmlns:ns2="http://ws.ws.hr.com/"><arg0>' + name + '</arg0></ns2:sayHello></soap:Body></soap:Envelope>';
+				    alert(data);
+					 $.post(
+				    		"http://192.168.0.101:8888/180515WebService3_ws_cxf/datatypews",
+				    		data,
+				    		function(msg){
+				    			var $Result = $(msg);
+				    		    var value = $Result.find("return").text();
+				    		    alert(value);
+				    		},
+				    		"xml"
+				    ); 
+
+				
+				    
+				});
+				
+			});
 			
 			function reqWebService(){
                var name = document.getElementById("name").value;
